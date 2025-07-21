@@ -6,10 +6,173 @@
     <title>Bergfest 5.0: Spree River Boat Trip</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Hergé / Ligne Claire Inspired Redesign */
+
+        /* --- FONT & COLOR DEFINITIONS --- */
+        :root {
+            --font-title: 'Bangers', cursive;
+            --font-body: 'Comic Neue', sans-serif;
+            
+            --color-parchment: #F7F3E8; /* Off-white paper color */
+            --color-ink: #222222;       /* A deep, solid black */
+            --color-accent-blue: #3A5E8C;
+            --color-accent-red: #D94A4A;
+        }
+
+        /* --- BASE STYLES --- */
+        body {
+            background-color: var(--color-parchment);
+            font-family: var(--font-body);
+            font-size: 16px; /* Adjusted for mobile readability */
+            line-height: 1.6;
+        }
+
+        .bg-parchment { background-color: var(--color-parchment); }
+        .text-ink { color: var(--color-ink); }
+
+        .title-font {
+            font-family: var(--font-title);
+            letter-spacing: 2px;
+        }
+
+        /* --- PANEL SYSTEM (Ligne Claire) --- */
+        .panel {
+            background-color: transparent;
+            border: 3px solid var(--color-ink);
+            padding: 1rem;
+            height: 100%;
+        }
+
+        .panel-title {
+            font-family: var(--font-title);
+            font-size: 1.5rem; /* Adjusted for mobile */
+            color: var(--color-ink);
+            letter-spacing: 1.5px;
+            border-bottom: 2px solid var(--color-ink);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel-content {
+            font-size: 1rem;
+        }
+
+        .panel-content strong {
+            font-weight: bold;
+            color: var(--color-accent-blue);
+        }
+
+        /* --- INFO PANELS (Date, Time, Location) --- */
+        .info-panel {
+            background-color: var(--color-accent-blue);
+            color: var(--color-parchment);
+            text-align: center; /* Center content on mobile */
+        }
+
+        .info-panel .panel-title {
+            color: var(--color-parchment);
+            border-bottom-color: var(--color-parchment);
+            justify-content: center; /* Center title */
+            font-size: 1.2rem;
+        }
+
+        .info-panel .panel-content {
+            color: var(--color-parchment);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* --- MAP CONTAINER (FIXED) --- */
+        .map-container {
+            border: 2px solid var(--color-ink);
+            width: 100%;
+            height: 250px; /* Fixed height instead of aspect-ratio */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* --- RULES ACCORDION --- */
+        .rule-card {
+            border: 2px solid var(--color-ink);
+            background-color: var(--color-parchment);
+            transition: background-color 0.2s;
+        }
+
+        .rule-card:hover {
+            background-color: #efebe0;
+        }
+
+        .rule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .indicator {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--color-accent-red);
+        }
+
+        .rule-content {
+            padding: 0 1rem 1rem 1rem;
+        }
+
+        .rule-content ul {
+            list-style-position: inside;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (min-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+            .panel-title {
+                font-size: 1.75rem;
+            }
+            .info-panel .panel-title {
+                font-size: 1.5rem;
+            }
+            .info-panel .panel-content {
+                font-size: 1.1rem;
+            }
+            .panel-content {
+                font-size: 1.1rem;
+            }
+            .rule-header {
+                font-size: 1.2rem;
+            }
+            .map-container {
+                height: 300px; /* Slightly larger on desktop */
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+    </style>
 </head>
 <body class="bg-parchment text-ink">
 
@@ -20,7 +183,7 @@
             <!-- Header Panel (Spans all columns) -->
             <header class="col-span-1 md:col-span-3 panel">
                 <div class="h-full w-full border-4 border-ink">
-                    <img src="img/header.png" alt="Students canoeing on the Spree river" class="w-full h-full object-cover">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN0NERkM0Ii8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzMzMzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkhlYWRlciBJbWFnZTogU3R1ZGVudHMgY2Fub2Vpbmcgb24gdGhlIFNwcmVlIHJpdmVyPC90ZXh0Pgo8L3N2Zz4K" alt="Students canoeing on the Spree river" class="w-full h-full object-cover">
                 </div>
             </header>
 
@@ -58,7 +221,7 @@
             <section class="panel">
                  <h2 class="panel-title">The Rendezvous Point</h2>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.2132961241503!2d13.47806681580633!3d52.48847227980808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a845f377044149%3A0x927449083902395!2sInsel%20der%20Jugend!5e0!3m2!1sen!2sde!4v1663423738862!5m2!1sen!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.2132961241503!2d13.47806681580633!3d52.48847227980808!2m3!1f0!2f0!3f0!3m2!1i400!2i300!4f13.1!3m3!1m2!1s0x47a845f377044149%3A0x927449083902395!2sInsel%20der%20Jugend!5e0!3m2!1sen!2sde!4v1663423738862!5m2!1sen!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </section>
 
