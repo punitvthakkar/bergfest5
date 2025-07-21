@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bergfest 5.0: Spree River Boat Trip</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-parchment text-ink">
+
+    <div class="container mx-auto p-4 md:p-6">
+        <!-- Main Page Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Header Panel (Spans all columns) -->
+            <header class="col-span-1 md:col-span-3 panel">
+                <div class="h-full w-full border-4 border-ink">
+                    <img src="img/header.png" alt="Students canoeing on the Spree river" class="w-full h-full object-cover">
+                </div>
+            </header>
+
+            <!-- Title Panel -->
+            <section class="col-span-1 md:col-span-3 panel text-center">
+                <h1 class="title-font text-4xl md:text-6xl text-ink">Bergfest 5.0: Spree River Boat Trip</h1>
+            </section>
+
+            <!-- Details Panels Wrapper -->
+            <div class="col-span-1 md:col-span-3 grid grid-cols-3 gap-4">
+                <div class="panel info-panel">
+                    <h2 class="panel-title">📅 Date</h2>
+                    <p class="panel-content">27th July 2025</p>
+                </div>
+                <div class="panel info-panel">
+                    <h2 class="panel-title">⏰ Timeline</h2>
+                    <p class="panel-content">15:30 - 19:30</p>
+                </div>
+                <div class="panel info-panel">
+                    <h2 class="panel-title">📍 Location</h2>
+                    <p class="panel-content">Insel der Jugend</p>
+                </div>
+            </div>
+
+            <!-- The Plan Panel (Spans two columns) -->
+            <section class="md:col-span-2 panel">
+                <h2 class="panel-title">The Adventure Awaits!</h2>
+                <div class="panel-content space-y-4">
+                    <p>Join over 25 fellow ESMT students for an unforgettable afternoon navigating the beautiful Spree river. Our adventure begins at <strong>15:30 PM</strong> sharp at Insel der Jugend. Please be on time!</p>
+                    <p>We'll board in groups of three. Life jackets, paddling instructions, and water maps are all included. We have the boats until <strong>19:30 PM</strong>, giving us plenty of time to explore. Let's make sure to return them on time to avoid any late fees!</p>
+                </div>
+            </section>
+
+            <!-- Map Panel -->
+            <section class="panel">
+                 <h2 class="panel-title">The Rendezvous Point</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.2132961241503!2d13.47806681580633!3d52.48847227980808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a845f377044149%3A0x927449083902395!2sInsel%20der%20Jugend!5e0!3m2!1sen!2sde!4v1663423738862!5m2!1sen!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+            <!-- Rules Panel (Spans all columns) -->
+            <section class="col-span-1 md:col-span-3 panel" x-data="{ openRule: null }">
+                <h2 class="panel-title">Captain's Log: Rules & Safety</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="rule-card">
+                        <button @click="openRule = openRule === 1 ? null : 1" class="rule-header"><span>Weather Policy</span><span class="indicator" x-text="openRule === 1 ? '-' : '+'"></span></button>
+                        <div x-show="openRule === 1" class="rule-content"><p>We sail in clouds, wind, or light rain. Only severe storms at the dock can stop us. Dress for the weather!</p></div>
+                    </div>
+                    <div class="rule-card">
+                        <button @click="openRule = openRule === 2 ? null : 2" class="rule-header"><span>Timing & Punctuality</span><span class="indicator" x-text="openRule === 2 ? '-' : '+'"></span></button>
+                        <div x-show="openRule === 2" class="rule-content"><p>Be at the dock by 15:30! We must return boats by 19:30. Late returns cost €20 per boat per hour.</p></div>
+                    </div>
+                    <div class="rule-card">
+                        <button @click="openRule = openRule === 3 ? null : 3" class="rule-header"><span>ID & Safety</span><span class="indicator" x-text="openRule === 3 ? '-' : '+'"></span></button>
+                        <div x-show="openRule === 3" class="rule-content"><p>A valid photo ID is mandatory. Listen carefully to the pre-departure safety briefing.</p></div>
+                    </div>
+                    <div class="rule-card">
+                        <button @click="openRule = openRule === 4 ? null : 4" class="rule-header"><span>On the Water</span><span class="indicator" x-text="openRule === 4 ? '-' : '+'"></span></button>
+                        <div x-show="openRule === 4" class="rule-content"><ul class="list-disc pl-5 space-y-1"><li>Basic swimming skills required.</li><li>Wear the provided life jackets.</li><li>No alcohol or drugs.</li><li>Max 3 people per boat.</li><li>Thunder or lightning? Return to shore immediately.</li></ul></div>
+                    </div>
+                    <div class="rule-card">
+                        <button @click="openRule = openRule === 5 ? null : 5" class="rule-header"><span>Emergencies</span><span class="indicator" x-text="openRule === 5 ? '-' : '+'"></span></button>
+                        <div x-show="openRule === 5" class="rule-content"><p>For serious incidents, call 112 or 110. You are responsible for any damage or injuries.</p></div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+         <footer class="text-center p-6 mt-6">
+            <p class="title-font text-2xl text-ink">See you on the water!</p>
+        </footer>
+    </div>
+
+</body>
+</html>
