@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bergfest 5.0: Spree River Boat Trip</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&amp;family=Comic+Neue:wght@400;700&amp;display=swap" rel="stylesheet">
     <style>
         /* Hergé / Ligne Claire Inspired Redesign */
 
@@ -173,8 +173,8 @@
             max-width: 1200px;
         }
     </style>
-</head>
-<body class="bg-parchment text-ink">
+
+
 
     <div class="container mx-auto p-4 md:p-6">
         <!-- Main Page Grid -->
@@ -227,36 +227,35 @@
 
             <!-- Rules Panel (Spans all columns) -->
             <section class="col-span-1 md:col-span-3 panel" x-data="{ openRule: null }">
-                <h2 class="panel-title">Captain's Log: Rules & Safety</h2>
+                <h2 class="panel-title">Captain's Log: Rules &amp; Safety</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                     <div class="rule-card">
-                        <button @click="openRule = openRule === 1 ? null : 1" class="rule-header"><span>Weather Policy</span><span class="indicator" x-text="openRule === 1 ? '-' : '+'"></span></button>
-                        <div x-show="openRule === 1" class="rule-content"><p>We sail in clouds, wind, or light rain. Only severe storms at the dock can stop us. Dress for the weather!</p></div>
+                        <button @click="openRule = openRule === 1 ? null : 1" class="rule-header"><span>Weather Policy</span><span class="indicator" x-text="openRule === 1 ? '-' : '+'">+</span></button>
+                        <div x-show="openRule === 1" class="rule-content" style="display: none;"><p>We sail in clouds, wind, or light rain. Only severe storms at the dock can stop us. Dress for the weather!</p></div>
                     </div>
                     <div class="rule-card">
-                        <button @click="openRule = openRule === 2 ? null : 2" class="rule-header"><span>Timing & Punctuality</span><span class="indicator" x-text="openRule === 2 ? '-' : '+'"></span></button>
-                        <div x-show="openRule === 2" class="rule-content"><p>Be at the dock by 15:30! We must return boats by 19:30. Late returns cost €20 per boat per hour.</p></div>
+                        <button @click="openRule = openRule === 2 ? null : 2" class="rule-header"><span>Timing &amp; Punctuality</span><span class="indicator" x-text="openRule === 2 ? '-' : '+'">+</span></button>
+                        <div x-show="openRule === 2" class="rule-content" style="display: none;"><p>Be at the dock by 15:30! We must return boats by 19:30. Late returns cost €20 per boat per hour.</p></div>
                     </div>
                     <div class="rule-card">
-                        <button @click="openRule = openRule === 3 ? null : 3" class="rule-header"><span>ID & Safety</span><span class="indicator" x-text="openRule === 3 ? '-' : '+'"></span></button>
-                        <div x-show="openRule === 3" class="rule-content"><p>A valid photo ID is mandatory. Listen carefully to the pre-departure safety briefing.</p></div>
+                        <button @click="openRule = openRule === 3 ? null : 3" class="rule-header"><span>ID &amp; Safety</span><span class="indicator" x-text="openRule === 3 ? '-' : '+'">+</span></button>
+                        <div x-show="openRule === 3" class="rule-content" style="display: none;"><p>A valid photo ID is mandatory. Listen carefully to the pre-departure safety briefing.</p></div>
                     </div>
                     <div class="rule-card">
-                        <button @click="openRule = openRule === 4 ? null : 4" class="rule-header"><span>On the Water</span><span class="indicator" x-text="openRule === 4 ? '-' : '+'"></span></button>
-                        <div x-show="openRule === 4" class="rule-content"><ul class="list-disc pl-5 space-y-1"><li>Basic swimming skills required.</li><li>Wear the provided life jackets.</li><li>No alcohol or drugs.</li><li>Max 3 people per boat.</li><li>Thunder or lightning? Return to shore immediately.</li></ul></div>
+                        <button @click="openRule = openRule === 4 ? null : 4" class="rule-header"><span>On the Water</span><span class="indicator" x-text="openRule === 4 ? '-' : '+'">+</span></button>
+                        <div x-show="openRule === 4" class="rule-content" style="display: none;"><ul class="list-disc pl-5 space-y-1"><li>Basic swimming skills required.</li><li>Wear the provided life jackets.</li><li>No alcohol or drugs.</li><li>Max 3 people per boat.</li><li>Thunder or lightning? Return to shore immediately.</li></ul></div>
                     </div>
                     <div class="rule-card">
-                        <button @click="openRule = openRule === 5 ? null : 5" class="rule-header"><span>Emergencies</span><span class="indicator" x-text="openRule === 5 ? '-' : '+'"></span></button>
-                        <div x-show="openRule === 5" class="rule-content"><p>For serious incidents, call 112 or 110. You are responsible for any damage or injuries.</p></div>
+                        <button @click="openRule = openRule === 5 ? null : 5" class="rule-header"><span>Emergencies</span><span class="indicator" x-text="openRule === 5 ? '-' : '+'">+</span></button>
+                        <div x-show="openRule === 5" class="rule-content" style="display: none;"><p>For serious incidents, call 112 or 110. You are responsible for any damage or injuries.</p></div>
                     </div>
                 </div>
             </section>
 
         </div>
          <footer class="text-center p-6 mt-6">
-            <p class="title-font text-2xl text-ink">See you on the water!</p>
+            <p class="title-font text-2xl text-ink">See you on the water!<br><font color="#333333"><br><span style="margin: 0px; padding: 0px; font-family: Poppins, sans-serif; letter-spacing: normal; background-color: rgb(247, 243, 232);"><font size="1" style=""><b>Disclaimer</b>: This is a voluntary community activity and not part of the academic curriculum. Participation is at your own risk. ESMT Berlin does not assume any liability for personal injury or damage to personal belongings.</font></span></font></p>
         </footer>
     </div>
 
-</body>
-</html>
+
